@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>The Winner of the game is?</h2>
+<mat-dialog-content style="text-align: center">
+  <h1>{{winner}}</h1>
+  <div>With a score of</div>
+  <mat-grid-list cols="2" rowHeight="3rem">
+    <mat-grid-tile>You</mat-grid-tile>
+    <mat-grid-tile>{{data.playerScore}}</mat-grid-tile>
+    <mat-grid-tile>Computer</mat-grid-tile>
+    <mat-grid-tile>{{data.computerScore}}</mat-grid-tile>
+  </mat-grid-list>
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: center">
+  <button mat-button mat-dialog-close color="primary">Start new round</button>
+</mat-dialog-actions>

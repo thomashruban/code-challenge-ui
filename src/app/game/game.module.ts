@@ -7,10 +7,15 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatRippleModule} from "@angular/material/core";
+import { WinDialogComponent } from './game/dialog/win-dialog/win-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
-    GameComponent
+    GameComponent,
+    WinDialogComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +24,10 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatButtonModule,
     MatCardModule,
     MatBadgeModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatRippleModule,
+    MatDialogModule,
+    MatGridListModule
   ]
 })
 export class GameModule { }

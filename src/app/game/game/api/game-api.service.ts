@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ResultEnum} from "../model/result.enum";
+import {ResultType} from "../model/result.type";
 import {GameRoundResultDto} from "../model/game-round-result-dto";
 
 @Injectable({

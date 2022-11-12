@@ -1,11 +1,11 @@
-.content {
+.base-content {
   margin: auto;
   width: 1000px;
   display: block;
   padding-top: 10px;
 }
 
-.selection-content {
+.content {
   display: flex;
   flex-direction: row;
 }

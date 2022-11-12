@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('code-challenge-ui app is running!');
+    expect(compiled.querySelector('.base-content span')?.textContent).toContain('code-challenge-ui app is running!');
   });
 });

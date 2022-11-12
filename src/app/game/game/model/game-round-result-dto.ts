@@ -1,6 +1,6 @@
-import {ResultEnum} from "./result.enum";
+import {ResultType} from "./result.type";
 
 export interface GameRoundResultDto {
   computerPick: number;
-  roundResult: ResultEnum;
+  roundResult: ResultType;
 }

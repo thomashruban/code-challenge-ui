@@ -11,6 +11,7 @@ import {NavigationComponent} from './navigation/navigation.component';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {fas} from "@fortawesome/free-solid-svg-icons";
 import {far} from "@fortawesome/free-regular-svg-icons";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {far} from "@fortawesome/free-regular-svg-icons";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
