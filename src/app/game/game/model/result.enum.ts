@@ -1,5 +1,1 @@
-export enum ResultEnum {
-  WIN,
-  LOSS,
-  TIE
-}
+export type ResultEnum = 'WIN' | 'LOSS' | 'TIE';

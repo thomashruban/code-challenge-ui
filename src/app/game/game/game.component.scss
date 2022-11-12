@@ -1,9 +1,17 @@
 .content {
+  margin: auto;
+  width: 1000px;
+  display: block;
+  padding-top: 10px;
+}
+
+.selection-content {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
 }
 
 .card {
+  width: 100%;
   margin: 10px;
 }
 
@@ -11,6 +19,35 @@
   margin: 10px;
 }
 
-.icon:hover {
-  background: blueviolet !important;
+.player-icon {
+  margin: 10px;
+}
+
+.player-icon:hover {
+  color: darkgrey;
+  cursor: pointer;
+}
+
+.selected {
+  color: #3f51b5;
+}
+
+.mat-spinner {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.even-spacing {
+  display: flex;
+  justify-content: space-around;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0px;
 }

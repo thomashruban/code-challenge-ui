@@ -9,7 +9,7 @@ import {MatCardModule} from "@angular/material/card";
 import {HttpClientModule} from "@angular/common/http";
 import {NavigationComponent} from './navigation/navigation.component';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {faR, fas} from "@fortawesome/free-solid-svg-icons";
+import {fas} from "@fortawesome/free-solid-svg-icons";
 import {far} from "@fortawesome/free-regular-svg-icons";
 
 @NgModule({

@@ -1,15 +1,54 @@
 <div class="content">
-  <mat-card class="card">
-    <mat-card-header>
-      <h1>You</h1>
-    </mat-card-header>
-    <mat-card-content>
-      <fa-icon class="icon" [icon]="['far', 'hand-rock']" size="8x"></fa-icon>
-      <fa-icon class="icon" [icon]="['far', 'hand-paper']" size="8x"></fa-icon>
-      <fa-icon class="icon" [icon]="['far', 'hand-scissors']" size="8x"></fa-icon>
-    </mat-card-content>
-  </mat-card>
-
-  <button mat-icon-button (click)="playRound()">Click me</button>
+  <div class="selection-content">
+    <mat-card class="card" matBadge="{{playerWins}}" matBadgeSize="large" matBadgePosition="above before"
+              matBadgeColor="warn">
+      <mat-card-header>
+        <h1>You</h1>
+      </mat-card-header>
+      <mat-card-content class="even-spacing">
+        <fa-icon [ngClass]="{'selected': playerPick === 0}" class="player-icon" [icon]="['far', 'hand-rock']" size="8x"
+                 (click)="playerChoseWeapon(0)"></fa-icon>
+        <fa-icon [ngClass]="{'selected': playerPick === 1}" class="player-icon" [icon]="['far', 'hand-paper']" size="8x"
+                 (click)="playerChoseWeapon(1)"></fa-icon>
+        <fa-icon [ngClass]="{'selected': playerPick === 2}" class="player-icon" [icon]="['far', 'hand-scissors']"
+                 size="8x" (click)="playerChoseWeapon(2)"></fa-icon>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card" matBadge="{{computerWins}}" matBadgeSize="large" matBadgePosition="above after"
+              matBadgeColor="warn">
+      <mat-card-header>
+        <h1>Computer</h1>
+      </mat-card-header>
+      <mat-card-content class="even-spacing">
+        <fa-icon [ngClass]="{'selected': resultDto?.computerPick === 0 && !loading}" class="icon"
+                 [icon]="['far', 'hand-rock']"
+                 size="8x"></fa-icon>
+        <fa-icon [ngClass]="{'selected': resultDto?.computerPick === 1 && !loading}" class="icon"
+                 [icon]="['far', 'hand-paper']"
+                 size="8x"></fa-icon>
+        <fa-icon [ngClass]="{'selected': resultDto?.computerPick === 2 && !loading}" class="icon"
+                 [icon]="['far', 'hand-scissors']" size="8x"></fa-icon>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="selection-content">
+    <mat-card class="card">
+      <mat-card-content class="text-center">
+        <div *ngIf="!loading">
+          <ng-container [ngSwitch]="resultDto?.roundResult">
+            <h2 *ngSwitchCase="'WIN'" class="no-margin">The force is strong with you, young padawan!</h2>
+            <h2 *ngSwitchCase="'LOSS'" class="no-margin">Much to learn you still have ...</h2>
+            <h2 *ngSwitchCase="'TIE'" class="no-margin">Do or do not. There is no try</h2>
+          </ng-container>
+        </div>
+        <div *ngIf="loading">
+          <h2 class="no-margin">... loading ...</h2>
+        </div>
+        <div *ngIf="!loading && !resultDto">
+          <h2 class="no-margin">Start the game by selecting one of your icons</h2>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-
+<mat-spinner *ngIf="loading"></mat-spinner>
