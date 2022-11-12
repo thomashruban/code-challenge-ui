@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {GameApiService} from "./api/game-api.service";
-import {finalize, Subject, take, takeUntil} from "rxjs";
-import {RockPaperScissorsEnum} from "./model/rock-paper-scissors.enum";
+import {finalize, firstValueFrom, lastValueFrom, Subject, take, takeUntil} from "rxjs";
+import {ResultEnum} from "./model/result.enum";
+import {GameRoundResultDto} from "./model/game-round-result-dto";
 
 @Component({
   selector: 'app-game',
@@ -10,16 +11,17 @@ import {RockPaperScissorsEnum} from "./model/rock-paper-scissors.enum";
 })
 export class GameComponent implements OnInit, OnDestroy {
 
-  public computerPick = RockPaperScissorsEnum.ROCK;
+  public roundResult!: GameRoundResultDto;
 
   constructor(private gameApiService: GameApiService) { }
 
   ngOnInit(): void {
   }
 
-  public async fightComputer() {
-    let test = await this.gameApiService.getRandomPick().toPromise();
-    console.log(test)
+  public async playRound() {
+    this.roundResult = await lastValueFrom(this.gameApiService.playRound(1));
+
+    console.log(this.roundResult);
   }
 
   ngOnDestroy(): void {

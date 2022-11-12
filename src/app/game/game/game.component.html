@@ -1,7 +1,15 @@
-<div>
-  <fa-icon [icon]="['far', 'hand-rock']" size="8x"></fa-icon>
-  <fa-icon [icon]="['far', 'hand-paper']" size="8x"></fa-icon>
-  <fa-icon [icon]="['far', 'hand-scissors']" size="8x"></fa-icon>
-  <button mat-icon-button (click)="fightComputer()">Click me</button>
+<div class="content">
+  <mat-card class="card">
+    <mat-card-header>
+      <h1>You</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <fa-icon class="icon" [icon]="['far', 'hand-rock']" size="8x"></fa-icon>
+      <fa-icon class="icon" [icon]="['far', 'hand-paper']" size="8x"></fa-icon>
+      <fa-icon class="icon" [icon]="['far', 'hand-scissors']" size="8x"></fa-icon>
+    </mat-card-content>
+  </mat-card>
+
+  <button mat-icon-button (click)="playRound()">Click me</button>
 </div>
 

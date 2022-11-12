@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {RockPaperScissorsEnum} from "../model/rock-paper-scissors.enum";
+import {ResultEnum} from "../model/result.enum";
+import {GameRoundResultDto} from "../model/game-round-result-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,16 @@ export class GameApiService {
 
   constructor( private http: HttpClient) { }
 
-  getRandomPick(): Observable<RockPaperScissorsEnum> {
-    return this.http.get<RockPaperScissorsEnum>(this.baseUrl + '/rockPaperScissor/game/round/play')
+  playRound(playerPick: number): Observable<GameRoundResultDto> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa('user:password')
+      }),
+      params: new HttpParams()
+        .set('player-pick', playerPick)
+    }
+
+    return this.http.get<GameRoundResultDto>(this.baseUrl + '/rockPaperScissor/game/round/play', httpOptions);
   }
 }
