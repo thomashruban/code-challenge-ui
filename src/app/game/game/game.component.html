@@ -44,6 +44,9 @@
         <div *ngIf="loading">
           <h2 class="no-margin">... loading ...</h2>
         </div>
+        <div *ngIf="!loading && !resultDto && !newGame">
+          <h2 class="no-margin">Something went wrong. Try again.</h2>
+        </div>
         <div *ngIf="newGame">
           <h2 class="no-margin">Start the game by selecting one of your icons</h2>
         </div>

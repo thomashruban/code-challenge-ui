@@ -58,6 +58,7 @@ export class GameComponent implements OnInit {
         this.resultDto = data;
       }).catch(err => {
         console.log(err);
+        this.loading = false;
       });
   }
 

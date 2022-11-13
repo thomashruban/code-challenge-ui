@@ -23,6 +23,6 @@ export class GameApiService {
         .set('player-pick', playerPick)
     }
 
-    return this.http.get<GameRoundResultDto>(this.baseUrl + '/rockPaperScissor/game/round/play', httpOptions);
+    return this.http.get<GameRoundResultDto>(this.baseUrl + '/rockPaperScissors/game/round/play', httpOptions);
   }
 }
