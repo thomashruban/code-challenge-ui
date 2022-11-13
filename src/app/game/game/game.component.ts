@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {GameApiService} from "./api/game-api.service";
-import {GameRoundResultDto} from "./model/game-round-result-dto";
+import {RoundResultDto} from "./model/round-result-dto";
 import {lastValueFrom} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {WinDialogComponent, WinDialogData} from "./dialog/win-dialog/win-dialog.component";
@@ -10,9 +10,9 @@ import {WinDialogComponent, WinDialogData} from "./dialog/win-dialog/win-dialog.
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit {
+export class GameComponent {
 
-  public resultDto!: GameRoundResultDto;
+  public resultDto!: RoundResultDto;
   public playerPick!: number;
   public newGame = true;
   public playerScoreCount = 0;
@@ -21,9 +21,6 @@ export class GameComponent implements OnInit {
 
   constructor(private dialogService: MatDialog,
               private gameApiService: GameApiService) {
-  }
-
-  ngOnInit(): void {
   }
 
   public playerChoseWeapon(pick: number) {
@@ -36,11 +33,11 @@ export class GameComponent implements OnInit {
       setTimeout(async () => {
         await this.fight(pick);
 
-        if (this.resultDto.roundResult === "WIN") {
-          this.playerScoreCount++;
+        if (this.resultDto.roundResult === 'WIN') {
+          ++this.playerScoreCount;
         }
-        if (this.resultDto.roundResult === "LOSS") {
-          this.computerScoreCount++;
+        if (this.resultDto.roundResult === 'LOSS') {
+          ++this.computerScoreCount;
         }
 
         if (this.playerScoreCount >= 3 || this.computerScoreCount >= 3) {

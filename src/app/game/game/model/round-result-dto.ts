@@ -1,6 +1,6 @@
 import {ResultType} from "./result.type";
 
-export interface GameRoundResultDto {
+export interface RoundResultDto {
   computerPick: number;
   roundResult: ResultType;
 }

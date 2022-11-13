@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ResultType} from "../model/result.type";
-import {GameRoundResultDto} from "../model/game-round-result-dto";
+import {RoundResultDto} from "../model/round-result-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class GameApiService {
 
   constructor( private http: HttpClient) { }
 
-  playRound(playerPick: number): Observable<GameRoundResultDto> {
+  playRound(playerPick: number): Observable<RoundResultDto> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -23,6 +23,6 @@ export class GameApiService {
         .set('player-pick', playerPick)
     }
 
-    return this.http.get<GameRoundResultDto>(this.baseUrl + '/rockPaperScissors/game/round/play', httpOptions);
+    return this.http.get<RoundResultDto>(this.baseUrl + '/rockPaperScissors/game/round/play', httpOptions);
   }
 }
